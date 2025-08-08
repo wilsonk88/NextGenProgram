@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NextGen Program • Molaprise</title>
+  <style>
+    /* ====== Design Tokens ====== */
+    :root {
+      --brand: #00539c;
+      --brand-600: #004884;
+      --brand-700: #003a6a;
+      --accent: #00b3a4;
+      --ink: #1f2937; /* gray-800 */
+      --subtle-ink: #4b5563; /* gray-600 */
+      --muted: #6b7280; /* gray-500 */
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --border: #e5e7eb; /* gray-200 */
+      --ring: rgba(0, 83, 156, 0.35);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+      --radius: 12px;
+    }
+
+    /* ====== Reset / Base ====== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background: var(--bg);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    :focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+
+    /* ====== Layout ====== */
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+
+    /* ====== Top Bar ====== */
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px; color: var(--brand); }
+    .brand-mark { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: var(--shadow-sm); }
+
+    /* ====== Hero ====== */
+    header.hero {
+      position: relative;
+      background: radial-gradient(120% 120% at 50% 0%, #0a2a4a 0%, var(--brand-700) 45%, var(--brand-600) 100%);
+      color: #fff;
+      padding: 72px 0 64px;
+      overflow: hidden;
+    }
+    .hero::after { /* subtle shape */
+      content: "";
+      position: absolute; inset: -20% -10% auto -10%; height: 280px;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.12), rgba(255,255,255,0));
+      transform: rotate(-6deg);
+      pointer-events: none;
+    }
+    .hero h1 { margin: 0 0 10px; font-size: clamp(2rem, 3.2vw + 1rem, 3.25rem); line-height: 1.15; letter-spacing: .3px; }
+    .hero p { margin: 0; font-size: clamp(1rem, .3vw + .9rem, 1.125rem); color: #e5ecf5; }
+
+    .hero-actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 12px 18px; border-radius: 10px; border: 1px solid transparent;
+      background: #fff; color: var(--brand-700); font-weight: 600; letter-spacing: .2px;
+      box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, var(--shadow-sm);
+      transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; box-shadow: var(--shadow-md); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary { background: linear-gradient(180deg, #0d65b8, var(--brand)); color: #fff; border-color: rgba(255,255,255,.08); }
+    .btn-primary:hover { filter: brightness(1.03); }
+
+    .btn-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+    .btn-outline:hover { background: rgba(255,255,255,.08); }
+
+    /* ====== Sections / Cards ====== */
+    main { padding: 56px 0; }
+    .section { margin: 42px 0; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: clamp(18px, 2.2vw, 28px);
+    }
+
+    h2.section-title { margin: 0 0 18px; font-size: clamp(1.35rem, .8vw + 1rem, 1.75rem); color: var(--brand-700); letter-spacing: .2px; }
+    .lead { color: var(--subtle-ink); font-size: 1.05rem; }
+
+    /* Grid for tracks */
+    .grid {
+      display: grid; gap: 18px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .track {
+      border-left: 4px solid var(--brand);
+    }
+    .track h3 { margin: 0 0 6px; font-size: 1.125rem; }
+    .track p { margin: 0; color: var(--subtle-ink); }
+
+    /* Lists */
+    ul.clean { list-style: none; padding: 0; margin: 0; }
+    ul.clean li { padding-left: 28px; position: relative; margin: 10px 0; }
+    ul.clean li::before {
+      content: ""; position: absolute; left: 0; top: .5em; width: 10px; height: 10px; border-radius: 3px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      box-shadow: 0 0 0 2px #fff inset;
+    }
+
+    /* Blockquote */
+    blockquote {
+      margin: 16px 0 0; padding: 18px 20px; background: #f3f6fb; color: #0e2a4a;
+      border-left: 4px solid var(--brand);
+      border-radius: 8px;
+    }
+    blockquote cite { display: block; font-style: normal; color: var(--muted); margin-top: 6px; }
+
+    /* Footer / Signup anchor */
+    .signup { background: linear-gradient(180deg, #fff, #f4f7fb); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 22px; }
+    .signup h3 { margin: 0 0 8px; }
+    .small { font-size: .95rem; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand" aria-label="Molaprise">
+         <img src="logo.png" alt="Logo" style="height: 64px; vertical-align: middle;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>NextGen Program</h1>
+      <p>Empowering young talent to shape the future of tech through immersive learning and hands‑on experience.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#about">Learn More</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- About -->
+      <section id="about" class="section">
+        <div class="card">
+          <h2 class="section-title">About the Program</h2>
+          <p class="lead">Our mission is to transform lives by nurturing young talent, creating inclusive pathways to employment, and building a stronger tech ecosystem.</p>
+        </div>
+      </section>
+
+      <!-- Tracks -->
+      <section class="section">
+        <h2 class="section-title">Join Us — Two Tracks Available</h2>
+        <div class="grid">
+          <div class="card track">
+            <h3>Alpha Labs — 6 Months</h3>
+            <p>For a period of 6 months, selected young talents will be equipped with practical knowledge from leading industry experts coupled with leadership and interesting social activities. Participants will be given an opportunity to receive corporate level expertise and certifications from industry giants like Cisco, Microsoft, and AWS.</p>
+          </div>
+          <div class="card track">
+            <h3>Seasonal Internship — 6 Weeks</h3>
+            <p>This is an intensive 6-weeks summer program that runs in all our offices with the aim of coaching participants into becoming technical leaders or experts. At the end of each program the participants will be given an opportunity to present a real-life technology solution to a panel of judges. It promises to be challenging and exciting!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eligibility -->
+      <section class="section">
+        <div class="card">
+          <h2 class="section-title">Eligibility</h2>
+          <ul class="clean">
+            <li>Recent graduates (under 2 years experience) — full‑time for 6 months</li>
+            <li>Current students — full‑time for 6 weeks</li>
+            <li>Full commitment to complete projects during the program</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Objectives / Quote -->
+      <section class="section">
+        <div class="card">
+          <h2 class="section-title">Our Objectives</h2>
+          <ul class="clean">
+            <li>Provide hands‑on training from industry experts</li>
+            <li>Build technical and professional competence</li>
+            <li>Address skills shortages in tech</li>
+            <li>Foster global collaboration and inclusion</li>
+          </ul>
+          <blockquote>
+            “Our commitment to investing in the Next Generation of Talents isn't just doing good; it's smart business.”
+            <cite>— Emmanuel Ola‑Dake, Founder</cite>
+          </blockquote>
+        </div>
+      </section>
+
+  
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Molaprise • NextGen Program
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
