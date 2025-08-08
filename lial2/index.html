@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fall for Yourself</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    section, .overlay {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.3rem;
+      max-width: 600px;
+    }
+    .nav {
+      margin-top: 2rem;
+    }
+    .nav a {
+      display: inline-block;
+      margin: 0 1rem;
+      padding: 10px 20px;
+      background-color: #a0522d;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .nav a:hover {
+      background-color: #8b4513;
+    }
+    #ideas {
+      background-color: #fff8f0;
+      color: #5a3e36;
+      text-align: center;
+    }
+    #ideas h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      width: 100%;
+    }
+    .idea-card {
+      background-color: #f9e8dd;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    .idea-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .idea-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+    .idea-card p {
+      font-size: 0.95rem;
+    }
+    #quiz {
+      background-color: #f3e5dc;
+      color: #5a3e36;
+      text-align: center;
+    }
+    #quiz h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      margin: 0.5rem auto;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #a0522d;
+      color: white;
+    }
+    .quiz-options button:hover {
+      background-color: #8b4513;
+    }
+    .quiz-result {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .playlist-widget {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(255, 248, 240, 0.9);
+      padding: 1rem;
+      border-top-left-radius: 10px;
+      box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .playlist-widget h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+      color: #5a3e36;
+    }
+    .playlist-widget button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .playlist-widget button:hover {
+      background-color: #8b4513;
+    }
+    #conclusion {
+      position: relative;
+      background: none;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    #conclusion .overlay-box {
+      background-color: rgba(80, 40, 30, 0.85);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #conclusion h2 {
+      font-size: 2rem;
+    }
+    #conclusion p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 1rem auto;
+    }
+    #conclusion img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+    body {
+  cursor: url('./image/leaf_cursor.png'), auto;
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>🍁 Fall for Yourself</h1>
+    <p>Welcome to your cozy corner of the internet. Embrace the magic of fall with soul-soothing solo adventures, cozy inspiration, and a sprinkle of seasonal joy made just for you.</p>
+    <div class="nav">
+      <a href="#ideas" onclick="document.getElementById('ideas').scrollIntoView({behavior: 'smooth'})">Ideas</a>
+      <a href="#quiz" onclick="document.getElementById('quiz').scrollIntoView({behavior: 'smooth'})">Quiz</a>
+    </div>
+  </div>
+
+  <section id="ideas">
+    <h2>Solo Fall Date Ideas</h2>
+    <div class="ideas-grid">
+      <div class="idea-card">
+        <h3>🍎 Farmer’s Market Stroll</h3>
+        <p>Explore local goods, sip on hot cider, and enjoy the crisp morning air.</p>
+        <img src="./image/farmers.jpg" alt="Farmer’s Market">
+      </div>
+      <div class="idea-card">
+        <h3>📖 Bookstore + Café</h3>
+        <p>Grab a novel, a window seat, and your favorite spiced drink.</p>
+        <img src="./image/cafe.jpg" alt="Bookstore and Cafe">
+      </div>
+      <div class="idea-card">
+        <h3>🍁 Leaf-Crunch Walk</h3>
+        <p>Take a quiet walk and listen to the satisfying crunch of fall leaves underfoot.</p>
+        <img src="./image/walk.jpg" alt="Leaf Crunch Walk">
+      </div>
+      <div class="idea-card">
+        <h3>🧣 DIY Fall Photoshoot</h3>
+        <p>Capture your best cozy outfits in scenic autumn spots.</p>
+        <img src="./image/photo.jpg" alt="Fall Photoshoot">
+      </div>
+      <div class="idea-card">
+        <h3>📽️ Home Movie Night</h3>
+        <p>Turn your room into a theater with fairy lights and fall films.</p>
+        <img src="./image/movie.jpg" alt="Home Movie Night">
+      </div>
+      <div class="idea-card">
+        <h3>🌇 Sunset Picnic</h3>
+        <p>Wrap up in a blanket, bring a book and a thermos, and catch golden hour.</p>
+        <img src="./image/sunset.jpg" alt="Sunset Picnic">
+      </div>
+      <div class="idea-card">
+        <h3>🕯️ Candle Making</h3>
+        <p>Make your own fall-scented candles and fill your space with warmth.</p>
+        <img src="./image/candle.jpg" alt="Candle Making">
+      </div>
+      <div class="idea-card">
+        <h3>🎧 Fall Playlist Walk</h3>
+        <p>Pair your favorite cozy tunes with a scenic neighborhood walk.</p>
+        <img src="./image/playlist.png" alt="Fall Playlist Walk">
+      </div>
+      <div class="idea-card">
+        <h3>📝 Gratitude Journaling</h3>
+        <p>Reflect on what you’re thankful for while sipping something warm.</p>
+        <img src="./image/journal.jpeg" alt="Gratitude Journaling">
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>🍂 Which Fall Mood Are You?</h2>
+    <div class="quiz-options">
+      <button onclick="showResult('Cinnamon Dreamer 🌰')">I love cozy mornings and warm drinks</button>
+      <button onclick="showResult('Spooky Snuggler 🎃')">I live for Halloween and scary movies</button>
+      <button onclick="showResult('Forest Walker 🌲')">I find peace in long autumn walks</button>
+      <button onclick="showResult('Candlelight Thinker 🕯️')">I enjoy journaling and introspection</button>
+    </div>
+    <div class="quiz-result" id="quiz-result"></div>
+  </section>
+
+  <section id="conclusion">
+    <div class="overlay-box">
+      <h2>Thanks for Visiting 🍂</h2>
+      <p>Whether you found a new fall ritual or simply enjoyed the vibes, I hope this space inspired you to cherish your solo moments. Come back anytime for more cozy inspiration.</p>
+      <img src="./image/gif.gif" alt="Cozy autumn gif">
+    </div>
+  </section>
+
+  <div class="playlist-widget">
+  <h4>🎵 Fall Playlist</h4>
+  <select id="music-select">
+    <option value="Canon_in_D_Major.mp3">Canon in D</option>
+    <option value="Air_on_the_G_String.mp3">Air on the G String</option>
+    <option value="ErikSatie-Gymnopedie.mp3">ErikSatie-Gymnopedie</option>
+  </select>
+  <button id="music-toggle">Play Music</button>
+  <audio id="bg-music" loop>
+    <source src="./audio/Canon_in_D_Major.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+  function showResult(result) {
+    document.getElementById('quiz-result').textContent = `You are: ${result}`;
+  }
+
+  const music = document.getElementById('bg-music');
+  const toggleBtn = document.getElementById('music-toggle');
+  const musicSelect = document.getElementById('music-select');
+  let isPlaying = false;
+  let hasStarted = false;
+
+  // Change audio source when dropdown changes
+  musicSelect.addEventListener('change', () => {
+    const selected = musicSelect.value;
+    const newSrc = `audio/${selected}`;
+
+    music.pause();
+    music.querySelector('source').src = newSrc;
+    music.load();
+
+    if (isPlaying) {
+      music.play();
+    }
+  });
+
+  // Auto-play softly on scroll
+  window.addEventListener('scroll', () => {
+    if (!hasStarted && window.scrollY > 100) {
+      music.volume = 0.2;
+      music.play().catch(() => {});
+      isPlaying = true;
+      hasStarted = true;
+      toggleBtn.textContent = 'Pause Music';
+    }
+  });
+
+  // Play/pause toggle
+  toggleBtn.addEventListener('click', () => {
+    if (!isPlaying) {
+      music.volume = 0.5;
+      music.play();
+      toggleBtn.textContent = 'Pause Music';
+    } else {
+      music.pause();
+      toggleBtn.textContent = 'Play Music';
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
+
+</body>
+</html>
