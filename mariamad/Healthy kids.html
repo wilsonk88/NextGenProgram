@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/mariamad/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kids Nutrition Guide</title>
+  <style>
+    body {
+      font-family: algerian, alasassy caps;
+      line-height: 1.6;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-image:"RAINBOWnutrition.jpg";
+      background-size: cover;
+      background-position: center;
+      color: purple;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+      display: block;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      color: #4CAF50;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    img, iframe {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border-radius: 8px;
+      display: block;
+    }
+
+    iframe {
+      aspect-ratio: 16 / 9;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nutrition & Healthy Eating for Kids</h1>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showPage('page1')">Why Nutrition Matters</a>
+    <a href="#" onclick="showPage('page2')">Healthy Meal Ideas</a>
+    <a href="#" onclick="showPage('page3')">Healthy Snacks</a>
+  </nav>
+
+  <!-- Page 1: Importance of Nutrition -->
+  <section id="page1" class="active">
+    <h2>Why Nutrition Matters for Kids</h2>
+    <img src="iimages/Pediactric nutrition.jpg" alt="Children enjoying healthy meals" />
+    <p>Good nutrition is essential for children's growth, development, and overall health. A balanced diet helps support their immune systems, energy levels, and cognitive abilities.</p>
+    <ul>
+      <li><strong>Growth:</strong> Nutrients like protein and calcium help develop bones and muscles.</li>
+      <li><strong>Brain Health:</strong> Healthy fats and iron improve focus and memory.</li>
+      <li><strong>Immunity:</strong> Vitamins from fruits and veggies protect against illness.</li>
+    </ul>
+    <h3>Watch: Why Nutrition Is Critical for Kids</h3>
+    <iframe src="https://www.youtube.com/embed/SUfIvoK2e1E" title="Importance of Nutrition for Kids" allowfullscreen></iframe>
+  </section>
+
+  <!-- Page 2: Healthy Meal Ideas -->
+  <section id="page2">
+    <h2>Healthy Meal Ideas for Kids</h2>
+    <img src="iimages/BODYComposition.jpg" alt="Healthy meals for kids" />
+    <p>Nutritious meals don’t have to be boring! Try these balanced options:</p>
+    <ul>
+      <li><strong>Breakfast:</strong> Oatmeal with fruit & honey</li>
+      <li><strong>Lunch:</strong> Chicken wraps with carrots & hummus</li>
+      <li><strong>Dinner:</strong> Grilled fish, quinoa, and veggies</li>
+      <li><strong>Vegetarian:</strong> Veggie stir-fry with brown rice</li>
+    </ul>
+    <h3>Watch: Quick Healthy Meal Prep Ideas</h3>
+    <iframe src="https://www.youtube.com/embed/vqM4PzxAQ38" title="Healthy Meals for Kids" allowfullscreen></iframe>
+  </section>
+
+  <!-- Page 3: Healthy Snack Ideas -->
+  <section id="page3">
+    <h2>Healthy Snack Ideas for Kids</h2>
+    <img src="iimages/RAINBOWnutrition.jpg" alt="Healthy snacks for kids" />
+    <p>Great snacks help maintain energy and focus. Try these kid-approved options:</p>
+    <ul>
+      <li>Apple slices with almond butter</li>
+      <li>Yogurt with granola and berries</li>
+      <li>Carrot sticks and hummus</li>
+      <li>Trail mix (nuts, seeds, raisins)</li>
+      <li>Fruit kabobs with yogurt dip</li>
+    </ul>
+    <h3>Watch: Easy Snack Recipes Kids Love</h3>
+    <iframe src="https://www.youtube.com/embed/dzXwyYWy-jY" title="Healthy Snacks for Kids" allowfullscreen></iframe>
+  </section>
+
+  <script>
+    function showPage(pageId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
+
+
